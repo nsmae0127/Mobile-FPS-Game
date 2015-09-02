@@ -4,43 +4,57 @@ using System.Collections;
 
 public class TimerManager : MonoBehaviour
 {
-	Text timer;
-	//UI text that is a game time
+	//reference to the timer UI Text
+	private Text timeText;
 
-	int startTime = 0;
-	float currentTime;
+	//the time when the user clicks on play
+	private float startTime;
+
+	//the ellapsed time after the user clicks on play
+	private float ellapsedTime;
+
+	//flag to start the counter
+	private bool startCounter;
+
+	private int minutes;
+	private int seconds;
 
 	// Use this for initialization
 	void Start ()
 	{
-		timer = GetComponent<Text> ();
+		timeText = GetComponent<Text> ();
+		timeText.text = null; //initalize the text null
 
-		timer.text = null; //initalize the text null
+		startCounter = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		//Calcurate a current time
-		currentTime += startTime + Time.deltaTime;
+		if (startCounter) {
+			//computer the ellapsed time 
+			ellapsedTime = Time.time - startTime;
 
-//		print ((int)currentTime);
+			minutes = (int)ellapsedTime / 60; //get the minutes
+			seconds = (int)ellapsedTime % 60; //get the seconds
 
-		//Current time convert to MMSS format
-		string mmss = TimeToMMSS (currentTime);
-
-		timer.text = mmss;
+			//update the time counter UI Text
+			timeText.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
+		}
 	}
 
-	string TimeToMMSS (float currentTime)
+	// Function to start the time counter
+	public void StartTimeCounter ()
 	{
-		int minutes = ((int)currentTime % 3600) / 60;
-		int seconds = ((int)currentTime % 3600) % 60; 
-
-		string mmss = string.Format ("{0}:{1}", minutes, seconds);
-
-//		print (mmss);
-
-		return mmss;
+		startTime = Time.time;
+		startCounter = true;
 	}
+
+	// Function to stop the time counter
+	public void StopTimeCounter ()
+	{
+		startCounter = false;
+	}
+
+
 }
