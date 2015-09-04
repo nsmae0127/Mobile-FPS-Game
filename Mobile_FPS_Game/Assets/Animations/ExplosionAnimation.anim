@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: explosion
+  m_Name: ExplosionAnimation
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,13 +19,13 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: a124d6bccd84e422c8caa549a2f1a3c3, type: 3}
-    - time: .333333343
+    - time: .166666672
       value: {fileID: 21300000, guid: 24077e463167e445b859f61f7cf624fc, type: 3}
-    - time: .666666687
+    - time: .333333343
       value: {fileID: 21300000, guid: 476e3069090934f79ba3f9b21e422b6d, type: 3}
-    - time: 1
+    - time: .5
       value: {fileID: 21300000, guid: 69329d7cc7ba640bb8a0f6b5baebfda1, type: 3}
-    - time: 1.33333337
+    - time: .666666687
       value: {fileID: 21300000, guid: ec4f4fd2b71ff454ea19de4f1137e503, type: 3}
     attribute: m_Sprite
     path: 
@@ -53,7 +53,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 1.41666675
+    m_StopTime: .833333313
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -72,4 +72,11 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: .833333313
+    functionName: DestroyGameObject
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

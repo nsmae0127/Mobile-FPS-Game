@@ -39,4 +39,10 @@ public class EnemyBullet : MonoBehaviour
 
 		isReady = true;
 	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+		if (col.collider.CompareTag("Player")) {
+			Destroy (gameObject);
+		}
+	}
 }

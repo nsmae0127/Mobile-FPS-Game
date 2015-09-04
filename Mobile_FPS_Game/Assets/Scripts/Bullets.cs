@@ -31,4 +31,10 @@ public class Bullets : MonoBehaviour
 			Destroy (gameObject);
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+		if (col.collider.CompareTag("Enemy")) {
+			Destroy (gameObject);
+		}
+	}
 }
