@@ -49,6 +49,9 @@ public class PlayerManager : MonoBehaviour
 	{
 		//update the health point
 
+		//reset the player position to the left of the screen
+		transform.position = new Vector2 (0, 0);
+
 		//set this player game object to active
 		gameObject.SetActive (true);
 	}

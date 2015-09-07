@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 	public GameObject player;
 	public GameObject enemySpawn;
 	public GameObject gameOver;
+	public GameObject scoreText;
+	public GameObject timer;
 
 	public enum GameManagerState
 	{
@@ -43,6 +45,12 @@ public class GameManager : MonoBehaviour
 			break;
 		case GameManagerState.GamePlay:
 
+			//reset the score
+			scoreText.GetComponent<GameScore> ().Score = 0;
+
+			//start the timer
+			timer.GetComponent<TimerManager> ().StartTimeCounter ();
+
 			//hide play button on game play state
 			playButton.SetActive (false);
 
@@ -58,6 +66,9 @@ public class GameManager : MonoBehaviour
 			//stop enemy spawner
 			enemySpawn.GetComponent<EnemySpawn> ().UnscheduleEnemySpawn ();
 					
+			//stop timer
+			timer.GetComponent<TimerManager> ().StopTimeCounter ();
+
 			//display game over
 			gameOver.SetActive (true);
 

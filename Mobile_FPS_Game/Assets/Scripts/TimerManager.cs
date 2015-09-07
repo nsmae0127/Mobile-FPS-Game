@@ -24,10 +24,8 @@ public class TimerManager : MonoBehaviour
 	{
 		timeText = GetComponent<Text> ();
 		timeText.text = null; //initalize the text null
-
-		startCounter = true;
 	}
-	
+
 	// Update is called once per frame
 	void Update ()
 	{

@@ -3,14 +3,19 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+	GameObject scoreText;
+
 	public GameObject explosionPrefab;
 
-	[SerializeField]private float speed;
+	[SerializeField]
+	private float
+		speed;
 
 	// Use this for initialization
 	void Start ()
 	{
-	
+		//get the score texx UI
+		scoreText = GameObject.FindGameObjectWithTag ("ScoreText");
 	}
 	
 	// Update is called once per frame
@@ -29,15 +34,19 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D col) {
-		if ((col.collider.CompareTag("Player")) || (col.collider.CompareTag("PlayerBullet"))) {
+	void OnCollisionEnter2D (Collision2D col)
+	{
+		if ((col.collider.CompareTag ("Player")) || (col.collider.CompareTag ("PlayerBullet"))) {
 			PlayExposion ();
+
+			//add 100 points to the score
+			scoreText.GetComponent<GameScore> ().Score += 100;
 
 			Destroy (gameObject);
 		}
 	}
 
-	void PlayExposion() 
+	void PlayExposion ()
 	{
 		GameObject explosion = (GameObject)Instantiate (explosionPrefab);
 
