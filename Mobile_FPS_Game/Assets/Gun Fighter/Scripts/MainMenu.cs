@@ -5,8 +5,6 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
 	public GameObject muteBtn;
-	public GameObject playBtn;
-	public GameObject quitBtn;
 
 	public Sprite muteSprite;
 	public Sprite unmuteSprite;
@@ -38,5 +36,16 @@ public class MainMenu : MonoBehaviour
 			muteImg.sprite = unmuteSprite;
 			audioSrc.mute = false;
 		}
+	}
+
+	public void StartGame (string level)
+	{
+		Application.LoadLevel (level);
+	}
+
+	public void QuitGame ()
+	{
+		print ("Quit game...");
+		Application.Quit ();
 	}
 }
