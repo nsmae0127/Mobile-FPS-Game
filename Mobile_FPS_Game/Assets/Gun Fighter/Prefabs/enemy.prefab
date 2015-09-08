@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 413894}
   - 212: {fileID: 21281206}
-  - 61: {fileID: 6109642}
   - 50: {fileID: 5074452}
   - 114: {fileID: 11424428}
+  - 61: {fileID: 6187968}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
@@ -43,7 +43,7 @@ Transform:
   m_GameObject: {fileID: 132752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -5.28000021, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 447806}
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6109642
+--- !u!61 &6187968
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,9 +86,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .036120452, y: .00822381955}
+  m_Offset: {x: -5.96046448e-08, y: -.0340019874}
   serializedVersion: 2
-  m_Size: {x: .313905805, y: .313552469}
+  m_Size: {x: .183992118, y: .441995949}
 --- !u!114 &11424428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 188578, guid: 5f98486dcf1ac2843a828f19b8d16123, type: 2}
-  speed: 2
+  speed: 1
 --- !u!114 &11448572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4689cc569693a4a0c8e478d0d2051fc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 539ec389f1f3be04f98e9311e2c51e6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -158,6 +158,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 104a6d8a480fb464fb049d04bac70cb8,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

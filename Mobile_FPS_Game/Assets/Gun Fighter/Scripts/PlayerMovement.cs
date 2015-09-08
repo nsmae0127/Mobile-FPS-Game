@@ -3,45 +3,39 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-	// The fastest the player can travel in the x axis.
-	private float maxSpeed = 10f;
-
-	// Amount of force added when the player jumps.
-	private float jumpForce = 300f;
-
-	// Whether or not the player is jumping.
-	private bool isJumping;
+	public float moveSpeed;
+	public float jumpForce;
 
 	private Rigidbody2D playerRigid;
+
+	public bool grounded;
+	public LayerMask whatIsGround;
+
+	private Collider2D playerCol;
 
 	void Start ()
 	{
 		playerRigid = GetComponent<Rigidbody2D> ();
-	}
 
+		playerCol = GetComponent<Collider2D> ();
+	}
+	
 	void Update ()
 	{
-		Move ();
-	}
+		grounded = Physics2D.IsTouchingLayers (playerCol, whatIsGround);
 
-	private void Move ()
-	{
-		float direction = Input.GetAxis ("Horizontal") * maxSpeed;
-
-		playerRigid.velocity = new Vector2 (direction, playerRigid.velocity.y);
-
-		if (Input.GetKeyDown (KeyCode.W) && isJumping == false) {
-			playerRigid.AddForce (Vector2.up * jumpForce);
-			print (jumpForce);
+		if (Input.GetKey (KeyCode.D)) {
+			playerRigid.velocity = new Vector2 (moveSpeed, playerRigid.velocity.y);
 		}
 
-		isJumping = true;
-	}
+		if (Input.GetKey (KeyCode.A)) {
+			playerRigid.velocity = new Vector2 (-moveSpeed, playerRigid.velocity.y);
+		}
 
-	void OnCollisionStay2D (Collision2D col)
-	{
-		if (col.gameObject.tag == "Ground") {
-			isJumping = false;
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			if (grounded) {
+				playerRigid.velocity = new Vector2 (playerRigid.velocity.x, jumpForce);
+			}
 		}
 	}
 }

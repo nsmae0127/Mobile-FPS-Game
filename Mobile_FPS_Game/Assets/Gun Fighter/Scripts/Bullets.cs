@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bullets : MonoBehaviour
 {
-	private float speed = 8f;
+	private float speed = 5f;
 
 	// Use this for initialization
 	void Start ()
@@ -32,8 +32,9 @@ public class Bullets : MonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D col) {
-		if (col.collider.CompareTag("Enemy")) {
+	void OnCollisionEnter2D (Collision2D col)
+	{
+		if (col.collider.CompareTag ("Enemy")) {
 			Destroy (gameObject);
 		}
 	}

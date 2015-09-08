@@ -7,9 +7,7 @@ public class Enemy : MonoBehaviour
 
 	public GameObject explosionPrefab;
 
-	[SerializeField]
-	private float
-		speed;
+	public float speed;
 
 	// Use this for initialization
 	void Start ()
@@ -23,17 +21,14 @@ public class Enemy : MonoBehaviour
 	{
 		Vector2 position = transform.position;
 
+		position = new Vector2 (position.x - speed * Time.deltaTime, position.y);
+		
+		transform.position = position;
 
 		Vector2 min = Camera.main.ViewportToWorldPoint (new Vector2 (0, 0));
 
 		if (transform.position.x < min.x) {
-			position = new Vector2 (position.x * speed * Time.deltaTime, position.y);
-
-			transform.position = position;
-		} else {
-			position = new Vector2 (position.x - speed * Time.deltaTime, position.y);
-
-			transform.position = position;
+			Destroy (gameObject);
 		}
 	}
 
